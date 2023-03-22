@@ -1,6 +1,6 @@
 <script>
-import $ from 'jquery';
-import SidebarBrand from './SidebarBrand.vue';
+import $ from "jquery";
+import SidebarBrand from "./SidebarBrand.vue";
 import SidebarTreeview from "./SidebarTreeview.vue";
 import SidebarNavitem from "./SidebarNavitem.vue";
 export default {
@@ -16,41 +16,45 @@ export default {
                 {
                     name: "Dashboard",
                     icon: "fas fa-home",
-                    routes:['home']
+                    routes: ["home"],
                 },
             ],
             aboutMenu: [
                 {
                     name: "About",
                     icon: "fas fa-info-circle",
-                    routes:['about'],
+                    routes: ["about"],
                 },
             ],
         };
     },
     mounted() {
         // if condition treeview not working after reach
-        this.$nextTick(()=>{
+        this.$nextTick(() => {
             $('[data-widget="treeview"]').Treeview("init");
-        })        
+        });
     },
     beforeMount() {
-        this.menus = this.homeMenu.concat(this.aboutMenu);
-        let { menus } = this;
-        menus.forEach(function (menu, index) {
-            if (menu.children) {
-                let active = [];
-                menu.children.forEach(function (child) {
-                    active.push(child.to.name);
-                    if (child.active) {
-                        child.active.forEach(function (value) {
-                            active.push(value);
-                        });
-                    }
-                });
-                menus[index].active = active;
-            }
-        });
+        this.mergeMenus();
+    },
+    methods: {
+        mergeMenus() {
+            this.menus = this.homeMenu.concat(this.aboutMenu);
+            this.menus.forEach(function (menu, index) {
+                if (menu.children) {
+                    let active = [];
+                    menu.children.forEach(function (child) {
+                        active.push(child.to.name);
+                        if (child.active) {
+                            child.active.forEach(function (value) {
+                                active.push(value);
+                            });
+                        }
+                    });
+                    this.menus[index].active = active;
+                }
+            });
+        },
     },
 };
 </script>

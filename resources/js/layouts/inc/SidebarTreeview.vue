@@ -5,7 +5,7 @@ export default {
   components: {
     SidebarNavitem,
   },
-  methods: {
+  computed:{
     isActive() {
       let current = this.$route.name;
       let menu = this.submenu;
@@ -19,12 +19,12 @@ export default {
       });
       return active.includes(current)
     },
-  },
+  }
 };
 </script>
 <template>
   <li class="nav-item menu-open" v-if="submenu">
-    <a href="#" class="nav-link" :class="{ active: isActive() }">
+    <a href="#" class="nav-link" :class="{ active: isActive }">
       <i class="nav-icon" :class="icon"></i>
       <p>
         {{ name }}
