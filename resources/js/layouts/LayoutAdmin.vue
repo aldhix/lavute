@@ -7,6 +7,9 @@ export default {
         Navbar,
         Sidebar,
         VFooter
+    },
+    mounted(){
+        $('body').Layout('fixLayoutHeight')
     }
 }
 </script>

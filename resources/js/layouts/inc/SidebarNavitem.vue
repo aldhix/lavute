@@ -15,7 +15,9 @@ export default {
   <li class="nav-item">
     <router-link :to="{ name : routes[0] }" class="nav-link" :class="{ active: isActive() }">
       <i class="nav-icon" :class="icon"></i>
-      {{ name }}
+      <p>
+        {{ name }}
+      </p>      
     </router-link>
   </li>
 </template>

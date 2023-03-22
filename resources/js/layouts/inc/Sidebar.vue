@@ -29,7 +29,7 @@ export default {
     },
     mounted() {
         // if condition treeview not working after reach
-        //$('[data-widget="treeview"]').Treeview("init");
+        $('[data-widget="treeview"]').Treeview("init");
     },
     beforeMount() {
         this.menus = this.homeMenu.concat(this.aboutMenu);
