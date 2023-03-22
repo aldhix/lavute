@@ -7,7 +7,7 @@ export default {
 }
 </script>
 <template>
-    <layout-admin title="Home" icon="fas fa-home">
+    <layout-admin title="About" icon="fas fa-home">
         <div class="card">
             <div class="card-body">
                 About
