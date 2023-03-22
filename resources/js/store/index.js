@@ -1,7 +1,8 @@
 import { createStore } from 'vuex'
 export default createStore({
     state: {
-        name:'Lavute'
+        name:'Lavute',
+        alerts:[]
     },
     mutations: {
     },
