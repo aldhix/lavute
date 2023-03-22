@@ -1,4 +1,5 @@
 <script>
+import $ from 'jquery';
 import SidebarBrand from './SidebarBrand.vue';
 import SidebarTreeview from "./SidebarTreeview.vue";
 import SidebarNavitem from "./SidebarNavitem.vue";
@@ -29,7 +30,9 @@ export default {
     },
     mounted() {
         // if condition treeview not working after reach
-        $('[data-widget="treeview"]').Treeview("init");
+        this.$nextTick(()=>{
+            $('[data-widget="treeview"]').Treeview("init");
+        })        
     },
     beforeMount() {
         this.menus = this.homeMenu.concat(this.aboutMenu);

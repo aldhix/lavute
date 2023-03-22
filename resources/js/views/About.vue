@@ -1,17 +1,17 @@
 <script>
-import VContent from '../components/VContent.vue'
+import LayoutAdmin from '../layouts/LayoutAdmin.vue';
 export default {
     components:{
-        VContent
+        LayoutAdmin
     }
 }
 </script>
 <template>
-    <v-content title="Home" icon="fas fa-home">
+    <layout-admin title="Home" icon="fas fa-home">
         <div class="card">
             <div class="card-body">
                 About
             </div>
         </div>
-    </v-content>
+    </layout-admin>
 </template>
