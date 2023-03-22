@@ -7,7 +7,11 @@ Layout Vue AdminLTE v3.2
 - Laravel +8
 
 ## Install
-Install vue etc & adminlte via nmp :
+install npm :
+```
+npm i
+```
+Install vue etc & adminlte via npm:
 ```
 npm i -D vue@next @vitejs/plugin-vue vue-router@next vuex@next admin-lte@^3.2
 ```
