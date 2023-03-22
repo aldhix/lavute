@@ -1,0 +1,10 @@
+/*
+!.gitignore
+!README.md
+!/resources/
+/resources/*
+!/resources/css
+!/resources/js
+/resources/js/bootstrap.js
+!/resources/views
+/resources/views/welcome.blade.php
