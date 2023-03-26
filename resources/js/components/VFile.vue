@@ -3,9 +3,14 @@ export default {
     inheritAttrs: false,
     props: ["modelValue", "errors", "helper", "displayError"],
     emits: ["update:modelValue"],
-    data() {
-        return {
-            label:'Choose file'
+    computed:{
+        label(){
+            const label = 'Choose file';
+            try {
+                return this.modelValue.name ? this.modelValue.name : label;
+            } catch (error) {
+                return label
+            }
         }
     },
     methods: {
@@ -16,9 +21,8 @@ export default {
         },
         onChange(e){
             const file = e.target.files[0];
-            this.label = file.name;
             this.$emit('update:modelValue',file)
-        }
+        },
     },
 };
 </script>
