@@ -18,7 +18,7 @@ npm i -D vue@next @vitejs/plugin-vue vue-router@next vuex@next admin-lte@^3.2
 
 Route Laravel web.php :
 ```
-Route::view('/{any?}','app')->where('any','.*');
+Route::view('/{any?}','app')->where('any','(?!(api).*).*');
 ```
 
 Run dev :
