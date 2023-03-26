@@ -2,7 +2,7 @@
 import LayoutAdmin from '../layouts/LayoutAdmin.vue';
 export default {
     components:{
-        LayoutAdmin
+        LayoutAdmin,
     }
 }
 </script>

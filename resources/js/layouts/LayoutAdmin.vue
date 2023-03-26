@@ -35,7 +35,7 @@ export default {
         <sidebar/>
         <div class="content-wrapper">
             <v-content :title="title" :icon="icon">
-                <router-view></router-view>
+                <slot></slot>
             </v-content>            
         </div>
         <v-footer/>
