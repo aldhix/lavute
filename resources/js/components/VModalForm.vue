@@ -1,18 +1,21 @@
 <script>
 export default {
     props: ["title", "icon", "id", "size"],
-    emits: ["modalClose"],
+    emits: ["modalClose","formSubmit"],
     methods: {
         modalClose() {
             this.$emit("modalClose");
         },
+        formSubmit(){
+            this.$emit("formSubmit")
+        }
     },
 };
 </script>
 <template>
     <Teleport to="body">
         <div class="modal fade" :id="id" data-backdrop="static" data-keyboard="false" tabindex="-1">
-            <div class="modal-dialog" :class="size">
+            <form class="modal-dialog" :class="size" @submit.prevent="formSubmit()">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
@@ -36,7 +39,7 @@ export default {
                         <slot name="footer"></slot>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </Teleport>
 </template>

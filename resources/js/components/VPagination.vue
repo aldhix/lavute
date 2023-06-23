@@ -1,10 +1,15 @@
 <script>
 export default {
-    props : ['links']
+    props : ['meta'],
+    computed:{
+        links(){
+            return this.meta.links
+        }
+    }
 }
 </script>
 <template>
-    <ul class="pagination pagination-sm">
+    <ul class="pagination pagination-sm" v-if="meta.total">
         <template v-for="(link, index) in links" :key="index">
             <li class="page-item" :class="{ active : link.active }" v-if="link.url">
                 <router-link class="page-link" :to="link.url"><span v-html="link.label"></span></router-link>
