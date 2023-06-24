@@ -25,6 +25,9 @@ export default {
         };
     },
     watch: {
+        value(newValue){
+            $(this.idHastag).val(newValue).trigger('change');
+        },
         errors: {
             immediate: true,
             deep: true,
