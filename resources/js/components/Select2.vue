@@ -1,7 +1,7 @@
 <script>
 export default {
     inheritAttrs: false,
-    props: ["id", "modelValue", "errors", "helper", "displayError"],
+    props: ["id", "modelValue", "errors", "helper", "displayError","idModal"],
     emits: ["update:modelValue"],
     computed: {
         value: {
@@ -55,7 +55,14 @@ export default {
         },
         initSelect() {
             const app = this;
-            $(`${app.idHastag}`).select2();
+            if(app.idModal){
+                $(`${app.idHastag}`).select2({
+                    dropdownParent: $(app.idModal)
+                });
+            }else {
+                $(`${app.idHastag}`).select2();
+            }
+            
             $(`${app.idHastag}`).on("select2:select", function (e) {
                 const val = $(this).val();
                 app.value = val;
