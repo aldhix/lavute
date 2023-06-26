@@ -5,11 +5,20 @@ export default {
     emits: ["update:modelValue"],
     computed:{
         label(){
-            const label = 'Choose file';
+            const label = 'Pilih file';
+     
             try {
-                return this.modelValue.name ? this.modelValue.name : label;
+                return this.modelValue.name;
             } catch (error) {
                 return label
+            }
+            
+        }
+    },
+    watch:{
+        label(newVal){
+            if(newVal == "Pilih file"){
+                this.$refs.fileupload.value = null;                
             }
         }
     },
@@ -30,6 +39,7 @@ export default {
 <template>
     <div class="custom-file">
         <input
+            ref="fileupload"
             type="file"
             class="custom-file-input"
             v-bind="$attrs"
